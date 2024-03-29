@@ -1,7 +1,6 @@
 document
   .getElementById("submitBtn")
   .addEventListener("click", function (event) {
-
     // Obtenir les données du formulaire
 
     let valPharmacie = document.getElementById("floatingInputPharmacie").value;
@@ -10,6 +9,8 @@ document
     ).value;
     let valPrenom = document.getElementById("floatingInputPrenom").value;
     let valNom = document.getElementById("floatingInputNom").value;
+    let valDatedn = document.getElementById("floatingInputDatedn").value;
+    let valLieudn = document.getElementById("floatingInputLieudn").value;
     let valMatricule = document.getElementById("floatingInputMatricule").value;
 
     // Mettre à jour les éléments de la liste avec les valeurs du formulaire
@@ -21,7 +22,9 @@ document
     listItems[1].textContent = valOrdonnance;
     listItems[2].textContent = valPrenom;
     listItems[3].textContent = valNom;
-    listItems[4].textContent = valMatricule;
+    listItems[4].textContent = valDatedn;
+    listItems[5].textContent = valLieudn;
+    listItems[6].textContent = valMatricule;
 
     // suppresion des données des inputs
 
@@ -29,13 +32,15 @@ document
     document.getElementById("floatingInputOrdonnance").value = "";
     document.getElementById("floatingInputPrenom").value = "";
     document.getElementById("floatingInputNom").value = "";
+    document.getElementById("floatingInputDatedn").value = "";
+    document.getElementById("floatingInputLieudn").value = "";
     document.getElementById("floatingInputMatricule").value = "";
   });
 
+// logique participant (e)
 document
   .getElementById("submitBtn2")
   .addEventListener("click", function (event) {
-   
     // Obtenir les données du formulaire
 
     let valPrenom = document.getElementById("floatingInputPrenom2").value;
@@ -64,6 +69,7 @@ document
     document.getElementById("floatingInputPhone").value = "";
   });
 
+// debut logique tableau
 document
   .getElementById("submitBtn3")
   .addEventListener("click", function (event) {
@@ -71,14 +77,8 @@ document
 
     // Obtenir les données du formulaire
 
-    let valQuantite = document.getElementById("floatingInputQuantite").value;
-    let valDesignation = document.getElementById(
-      "floatingInputDesignation"
-    ).value;
-    let valPrixUnitaire = document.getElementById(
-      "floatingInputPrixUnitaire"
-    ).value;
-    let ValPrixTotal = document.getElementById("floatingInputPrixTotal").value;
+    let valServices = document.getElementById("floatingInputServices").value;
+    let valMontant = document.getElementById("floatingInputMontant").value;
 
     // Créer une nouvelle ligne
 
@@ -91,20 +91,18 @@ document
 
     let cell1 = newRow.insertCell(0);
     let cell2 = newRow.insertCell(1);
-    let cell3 = newRow.insertCell(2);
-    let cell4 = newRow.insertCell(3);
+
+    // Définir les proportions des colonnes en pourcentage
+    cell1.style.width = "75%";
+    cell2.style.width = "25%";
 
     // Ajout des données
 
-    cell1.innerHTML = valQuantite;
-    cell2.innerHTML = valDesignation;
-    cell3.innerHTML = valPrixUnitaire + " francs CFA";
-    cell4.innerHTML = ValPrixTotal + " francs CFA";
+    cell1.innerHTML = valServices;
+    cell2.innerHTML = valMontant + " francs CFA";
 
     // suppresion des données des inputs
 
-    document.getElementById("floatingInputQuantite").value = "";
-    document.getElementById("floatingInputDesignation").value = "";
-    document.getElementById("floatingInputPrixUnitaire").value = "";
-    document.getElementById("floatingInputPrixTotal").value = "";
+    document.getElementById("floatingInputServices").value = "";
+    document.getElementById("floatingInputMontant").value = "";
   });
